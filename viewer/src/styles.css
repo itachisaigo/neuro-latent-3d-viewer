@@ -39,6 +39,7 @@ select {
 }
 
 .topbar,
+.sourcebar,
 .statsbar,
 .details,
 .view-cube {
@@ -133,6 +134,62 @@ select {
   padding: 0 8px;
   color: #e5edf5;
   background: rgba(15, 23, 42, 0.88);
+}
+
+.sourcebar {
+  top: 76px;
+  left: 14px;
+  max-width: min(620px, calc(100vw - 228px));
+  min-height: 34px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  color: #cbd5e1;
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+.sourcebar[hidden] {
+  display: none;
+}
+
+.sourcebar-title {
+  max-width: 160px;
+  color: #f8fafc;
+  font-weight: 650;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sourcebar-links {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.sourcebar a,
+.sourcebar span {
+  min-width: 0;
+}
+
+.sourcebar a {
+  color: #7dd3fc;
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sourcebar a:hover,
+.sourcebar a:focus-visible {
+  color: #bae6fd;
+  text-decoration: underline;
+  outline: none;
 }
 
 .statsbar {
@@ -337,7 +394,14 @@ select {
   }
 
   .view-cube {
+    top: 118px;
+  }
+
+  .sourcebar {
     top: 74px;
+    right: 14px;
+    max-width: none;
+    overflow-x: auto;
   }
 
   .statsbar {

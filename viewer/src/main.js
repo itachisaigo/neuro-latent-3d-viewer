@@ -6,6 +6,7 @@ const canvas = document.querySelector("#scene");
 const statusCount = document.querySelector("#status-count");
 const statusSelection = document.querySelector("#status-selection");
 const details = document.querySelector("#details");
+const sourcebar = document.querySelector("#sourcebar");
 const datasetSelect = document.querySelector("#dataset-select");
 const methodGroup = document.querySelector("#method-group");
 const fitButton = document.querySelector("#fit-view");
@@ -137,6 +138,7 @@ async function loadDataset(datasetId, preferredView) {
 
   buildScene(dataset.items);
   renderMethodButtons();
+  renderSourceBar();
   updateStatusCount();
   updateMethodButtons();
   details.innerHTML = `<div class="details-empty">No selection</div>`;
@@ -614,6 +616,62 @@ function updateMethodButtons() {
 
 function updateStatusCount() {
   statusCount.textContent = [getDatasetLabel(), getItemCountLabel(), getSignalLabel(), getActiveLabel()].filter(Boolean).join(" · ");
+}
+
+function renderSourceBar() {
+  const info = getDatasetSourceInfo();
+  const links = [];
+
+  if (info.sourceUrl) {
+    links.push(`<a href="${escapeAttribute(info.sourceUrl)}" target="_blank" rel="noreferrer">${escapeHtml(info.sourceName || "Source")}</a>`);
+  } else if (info.sourceName) {
+    links.push(`<span>${escapeHtml(info.sourceName)}</span>`);
+  }
+  if (info.doi) {
+    links.push(`<a href="${escapeAttribute(getDoiUrl(info.doi))}" target="_blank" rel="noreferrer">DOI ${escapeHtml(info.doi)}</a>`);
+  }
+  if (info.parentDoi) {
+    links.push(`<a href="${escapeAttribute(getDoiUrl(info.parentDoi))}" target="_blank" rel="noreferrer">Parent DOI ${escapeHtml(info.parentDoi)}</a>`);
+  }
+  if (info.license) {
+    const license = escapeHtml(info.license);
+    links.push(
+      info.licenseUrl
+        ? `<a href="${escapeAttribute(info.licenseUrl)}" target="_blank" rel="noreferrer">${license}</a>`
+        : `<span>${license}</span>`,
+    );
+  }
+
+  if (!links.length) {
+    sourcebar.hidden = true;
+    sourcebar.innerHTML = "";
+    return;
+  }
+
+  sourcebar.hidden = false;
+  sourcebar.innerHTML = `
+    <span class="sourcebar-title">${escapeHtml(info.label)}</span>
+    <span class="sourcebar-links">${links.join("<span aria-hidden=\"true\">/</span>")}</span>
+  `;
+}
+
+function getDatasetSourceInfo() {
+  return {
+    label: datasetEntry?.shortLabel || datasetEntry?.label || dataset?.label || "Dataset",
+    sourceName: datasetEntry?.sourceName || dataset?.sourceName || dataset?.source || "",
+    sourceUrl: datasetEntry?.sourceUrl || dataset?.sourceUrl || "",
+    doi: datasetEntry?.doi || dataset?.doi || "",
+    parentDoi: datasetEntry?.parentDoi || dataset?.parentDoi || "",
+    license: datasetEntry?.license || dataset?.license || "",
+    licenseUrl: datasetEntry?.licenseUrl || dataset?.licenseUrl || "",
+  };
+}
+
+function getDoiUrl(doi) {
+  if (/^https?:\/\//.test(doi)) {
+    return doi;
+  }
+  return `https://doi.org/${doi}`;
 }
 
 function getDatasetLabel() {

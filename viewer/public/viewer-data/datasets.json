@@ -10,6 +10,10 @@
       "stimulus": "1,000 natural images",
       "signal": "Neuropixels spiking responses",
       "subject": "Macaque visual cortex",
+      "sourceName": "ScienceDB",
+      "sourceUrl": "https://www.scidb.cn/en/detail?dataSetId=413ba7ddcb694bb2a534270caa90be36",
+      "doi": "10.57760/sciencedb.31427",
+      "parentDoi": "10.57760/sciencedb.33556",
       "description": "fMRI-guided Neuropixels recordings from IT and early visual cortex while macaques viewed natural images."
     },
     {
@@ -20,6 +24,11 @@
       "stimulus": "100 Japanese speech clips",
       "signal": "event-aligned EEG bandpower + acoustic audio features",
       "subject": "Human EEG/EMG/audio speech dataset",
+      "sourceName": "OpenNeuro",
+      "sourceUrl": "https://openneuro.org/datasets/ds007808",
+      "doi": "10.18112/openneuro.ds007808.v1.0.0",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
       "description": "Lightweight 3D point layouts for JapanEEG listening clips, colored by source speaker/run, with click-to-play audio and transcripts."
     }
   ]
