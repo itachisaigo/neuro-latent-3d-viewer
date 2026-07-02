@@ -1,0 +1,26 @@
+{
+  "schema": "neuro-latent-viewer-manifest-v1",
+  "defaultDataset": "triple-n",
+  "datasets": [
+    {
+      "id": "triple-n",
+      "label": "Triple-N macaque natural images",
+      "shortLabel": "Triple-N",
+      "href": "pca3d.json",
+      "stimulus": "1,000 natural images",
+      "signal": "Neuropixels spiking responses",
+      "subject": "Macaque visual cortex",
+      "description": "fMRI-guided Neuropixels recordings from IT and early visual cortex while macaques viewed natural images."
+    },
+    {
+      "id": "japaneeg-audio",
+      "label": "JapanEEG speech audio clips",
+      "shortLabel": "JapanEEG audio",
+      "href": "japaneeg-audio/index.json",
+      "stimulus": "100 Japanese speech clips",
+      "signal": "event-aligned EEG bandpower + acoustic audio features",
+      "subject": "Human EEG/EMG/audio speech dataset",
+      "description": "Lightweight 3D point layouts for JapanEEG listening clips, colored by source speaker/run, with click-to-play audio and transcripts."
+    }
+  ]
+}

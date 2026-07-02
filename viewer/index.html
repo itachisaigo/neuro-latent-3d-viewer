@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neuro Latent 3D Viewer</title>
+  </head>
+  <body>
+    <main id="app">
+      <canvas id="scene"></canvas>
+
+      <section class="topbar" aria-label="View controls">
+        <label class="dataset-control" title="Dataset">
+          <span>Dataset</span>
+          <select id="dataset-select" aria-label="Dataset"></select>
+        </label>
+        <div class="tool-group method-group" id="method-group" aria-label="Embedding method">
+          <button class="tool-button method-button is-active" data-method="pca" title="PCA layout">PCA</button>
+          <button class="tool-button method-button" data-method="tsne" title="t-SNE layout">t-SNE</button>
+          <button class="tool-button method-button" data-method="umap" title="UMAP layout">UMAP</button>
+        </div>
+        <div class="tool-group">
+          <button class="tool-button" data-view="iso" title="Isometric view">Iso</button>
+          <button class="tool-button" data-view="top" title="Top view">Top</button>
+          <button class="tool-button" data-view="front" title="Front view">Front</button>
+          <button class="tool-button" data-view="right" title="Right view">Right</button>
+          <button class="tool-button" id="fit-view" title="Zoom to fit">Fit</button>
+        </div>
+        <div class="tool-group">
+          <button class="tool-button is-active" id="camera-mode" title="Toggle projection">Persp</button>
+          <button class="tool-button is-active" id="toggle-images" title="Toggle media">Media</button>
+          <button class="tool-button is-active" id="toggle-points" title="Toggle points">Pts</button>
+        </div>
+        <label class="slider-control" title="Media size">
+          <span>Size</span>
+          <input id="sprite-scale" type="range" min="0.16" max="0.72" value="0.34" step="0.02" />
+        </label>
+        <label class="search-control" title="Select item index">
+          <span>ID</span>
+          <input id="jump-index" type="number" min="1" max="1000" placeholder="1-1000" />
+        </label>
+      </section>
+
+      <section class="statsbar" aria-label="Scene status">
+        <span id="status-count">Loading</span>
+        <span id="status-selection">No selection</span>
+      </section>
+
+      <aside class="details" id="details" aria-label="Selected item">
+        <div class="details-empty">No selection</div>
+      </aside>
+
+      <div class="view-cube" aria-label="View cube">
+        <button data-view="top" title="Top view">Top</button>
+        <div>
+          <button data-view="left" title="Left view">Left</button>
+          <button data-view="front" title="Front view">Front</button>
+          <button data-view="right" title="Right view">Right</button>
+        </div>
+        <button data-view="bottom" title="Bottom view">Bottom</button>
+      </div>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
