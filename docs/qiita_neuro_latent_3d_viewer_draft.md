@@ -21,11 +21,11 @@ https://itachisaigo.github.io/neuro-latent-3d-viewer/
 
 ![3D viewer demo](https://raw.githubusercontent.com/itachisaigo/neuro-latent-3d-viewer/main/docs/assets/neuro-viewer-demo.gif)
 
-![Triple-N viewer](https://raw.githubusercontent.com/itachisaigo/neuro-latent-3d-viewer/main/docs/assets/triplen-viewer.png)
+![Triple-N viewer](https://raw.githubusercontent.com/itachisaigo/neuro-latent-3d-viewer/main/docs/assets/triplen-viewer-20260706.png)
 
 Triple-Nでは、自然画像を3D空間上の画像スプライトとして表示します。
 
-![JapanEEG viewer](https://raw.githubusercontent.com/itachisaigo/neuro-latent-3d-viewer/main/docs/assets/japaneeg-viewer.png)
+![JapanEEG viewer](https://raw.githubusercontent.com/itachisaigo/neuro-latent-3d-viewer/main/docs/assets/japaneeg-viewer-20260706.png)
 
 JapanEEGでは、音声イベントを点として表示します。点をクリックすると、その短い音声クリップを再生できます。
 
