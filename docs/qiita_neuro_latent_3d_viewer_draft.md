@@ -9,13 +9,9 @@ Qiita tags: Python, Three.js, OpenNeuro, Neuroscience, DataVisualization
 
 画像や音声に対する脳応答を3次元に落として、その中を回転したりズームしたりしながら動けたら、見た目がかっこいいし楽しそうです。今回はそのくらいの軽いモチベーションで、脳の表現空間を3D空間で眺めるビューアを作りました。
 
-公開デモ:
+下記で実際に確認できます。
 
 https://itachisaigo.github.io/neuro-latent-3d-viewer/
-
-コード:
-
-https://github.com/itachisaigo/neuro-latent-3d-viewer
 
 ## 作ったもの
 
